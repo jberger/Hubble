@@ -17,7 +17,7 @@ my $app = $t->app;
 my $pg  = $app->pg;
 $pg->db->query("drop schema if exists $schema cascade");
 $pg->db->query("create schema $schema");
-$pg->migrations->migrate;
+$app->migrate;
 
 my $model = $app->model->user;
 my $id = $model->create({
